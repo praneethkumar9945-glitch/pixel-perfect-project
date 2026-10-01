@@ -8,6 +8,13 @@
       "when": 1790831863404,
       "tag": "0000_university_manager_core",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1790831904345,
+      "tag": "0001_documents_storage_policies",
+      "breakpoints": true
     }
   ]
 }
