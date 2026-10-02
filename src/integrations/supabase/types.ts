@@ -732,6 +732,30 @@ export type Database = {
         Returns: boolean
       }
       is_staff: { Args: { _user_id: string }; Returns: boolean }
+      notify_step: { Args: { _sub_id: string }; Returns: undefined }
+      review_submission: {
+        Args: { _decision: string; _id: string; _remarks?: string }
+        Returns: {
+          batch_id: string | null
+          class_timing_id: string | null
+          created_at: string
+          current_step: string | null
+          data: Json
+          form_id: string
+          id: string
+          reference_no: string
+          status: Database["public"]["Enums"]["submission_status"]
+          student_id: string | null
+          submitted_by: string
+          updated_at: string
+        }
+        SetofOptions: {
+          from: "*"
+          to: "form_submissions"
+          isOneToOne: true
+          isSetofReturn: false
+        }
+      }
     }
     Enums: {
       app_role: "super_admin" | "admin" | "hod" | "faculty" | "student"
