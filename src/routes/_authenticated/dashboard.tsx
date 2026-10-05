@@ -463,7 +463,7 @@ function StudentDashboard() {
               <li key={f.id} className="flex items-center gap-3 px-4 py-2.5">
                 <FileText className="size-4 text-muted-foreground" />
                 <div className="flex-1"><p className="text-sm font-medium">{f.name}</p><p className="text-xs text-muted-foreground">{f.description}</p></div>
-                <Button asChild size="sm" variant="outline"><Link to="/fill/$formId" params={{ formId: f.id }} search={{ classId: undefined }}>Start</Link></Button>
+                <Button asChild size="sm" variant="outline"><Link to="/fill/$formId" params={{ formId: f.id }} search={{}}>Start</Link></Button>
               </li>
             ))}
           </ul>
