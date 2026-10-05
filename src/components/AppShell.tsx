@@ -77,7 +77,7 @@ export function AppShell({ children }: { children: ReactNode }) {
             return (
               <Link
                 key={item.to}
-                to={item.to}
+                to={item.to as "/dashboard"}
                 className={cn(
                   "flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm font-medium transition-colors",
                   active
@@ -152,7 +152,7 @@ export function AppShell({ children }: { children: ReactNode }) {
       </aside>
 
       <div className="flex min-w-0 flex-1 flex-col">
-        <header className="sticky top-0 z-20 flex h-14 items-center gap-3 border-b border-border bg-surface/90 px-4 backdrop-blur lg:px-6">
+        <header className="sticky top-0 z-20 flex h-14 items-center gap-3 border-b border-border bg-surface px-4 shadow-sm lg:px-6">
           <Link to="/dashboard" className="font-display text-sm font-semibold lg:hidden">
             University Manager
           </Link>
@@ -181,10 +181,10 @@ export function AppShell({ children }: { children: ReactNode }) {
         </header>
 
         <div className="flex gap-1 overflow-x-auto border-b border-border bg-surface px-3 py-2 lg:hidden">
-          {[...main, ...(isStaff ? admin : []), ...work].map((item) => (
+          {[...main, ...(isStaff ? admin : isHod ? admin.slice(0, 5) : []), ...work, ...(isStaff || isHod ? insight : []), ...(isStaff ? [{ to: "/users", label: "Users & roles", icon: ShieldCheck }] : [])].map((item) => (
             <Link
               key={item.to}
-              to={item.to}
+              to={item.to as "/dashboard"}
               className="whitespace-nowrap rounded-md px-3 py-1.5 text-xs font-medium text-muted-foreground"
               activeProps={{ className: "bg-primary text-primary-foreground" }}
             >
